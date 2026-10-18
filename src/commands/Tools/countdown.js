@@ -70,10 +70,25 @@ export default {
             `Time remaining: **${formatTime(totalSeconds)}**`,
         );
 
-        const message = await interaction.channel.send({
-            embeds: [initialEmbed],
-            components: [row],
+        if (!interaction.channel) {
+    console.error(
+        "Countdown failed: interaction channel is unavailable."
+    );
+
+    if (interaction.isRepliable() && !interaction.replied && !interaction.deferred) {
+        await interaction.reply({
+            content: "I couldn't access this channel. Please try again.",
+            ephemeral: true,
         });
+    }
+
+    return;
+}
+
+const message = await interaction.channel.send({
+    embeds: [initialEmbed],
+    components: [row],
+});
 
         const countdownData = {
             message,
