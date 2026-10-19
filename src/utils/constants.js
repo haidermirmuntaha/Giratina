@@ -30,12 +30,6 @@ export const DEFAULT_GUILD_CONFIG = {
     adminRole: null,
     welcomeChannel: null,
     autoRole: null,
-        // DISBOARD bump reminder (persistent; survives Railway restarts)
-    bumpEnabled: false,
-    bumpChannelId: null,
-    bumpRoleId: null,
-    lastBumpAt: null,
-    lastBumpReminderFor: null,
     logging: {
         enabled: false,
         channels: { audit: null, applications: null, reports: null },
