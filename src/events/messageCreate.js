@@ -1,4 +1,4 @@
-
+import { handleDisboardBumpMessage } from '../services/bumpReminderService.js';
 import { hostname } from 'node:os';
 import { handleAfkMessage } from '../services/afkService.js';
 import { Events } from 'discord.js';
