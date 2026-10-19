@@ -24,17 +24,10 @@ import {
 const MESSAGE_XP_RATE_LIMIT_ATTEMPTS = 12;
 const MESSAGE_XP_RATE_LIMIT_WINDOW_MS = 10000;
   async execute(message, client) {
-    try {
-      // DISBOARD is a bot — handle its successful bump confirmations before the bot filter.
-      if (message.guild && message.author?.bot) {
-        await handleDisboardBumpMessage(message, client);
-        return;
-      }
+  try {
+    if (message.author.bot || !message.guild) return;
 
-      if (message.author.bot || !message.guild) return;
-
-      logger.debug(`Message received from ${message.author.tag}: ${message.content}`);
-      // ... rest unchanged
+    logger.debug(`Message received from ${message.author.tag}: ${message.content}`);
 export default {
   name: Events.MessageCreate,
   async execute(message, client) {
