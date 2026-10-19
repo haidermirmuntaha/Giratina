@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+import { hostname } from 'node:os';
 import { handleAfkMessage } from '../services/afkService.js';
 import { Events } from 'discord.js';
 import { logger } from '../utils/logger.js';
