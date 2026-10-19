@@ -20,6 +20,8 @@ export default {
       startupLog(`Serving ${client.guilds.cache.size} guild(s)`);
       startupLog(`Loaded ${client.commands.size} commands`);
 
+           // Deliver any overdue DISBOARD bump reminders after restart (idempotent via lastBumpReminderFor)
+      await runSafeTask('bump_reminder_startup', () => checkBumpReminders(client))();
       if (client.config?.features?.music) {
         initRiffyAfterReady(client);
       }
