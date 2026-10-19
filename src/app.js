@@ -251,6 +251,8 @@ class TitanBot extends Client {
   setupCronJobs() {
     cron.schedule('0 6 * * *', runSafeTask('birthday_check', () => checkBirthdays(this)));
     cron.schedule('* * * * *', runSafeTask('giveaway_check', () => checkGiveaways(this)));
+        // DISBOARD bump reminders: every minute
+    cron.schedule('* * * * *', runSafeTask('bump_reminder_check', () => checkBumpReminders(this)));
     cron.schedule('*/15 * * * *', runSafeTask('counter_update', () => this.updateAllCounters()));
   }
 
