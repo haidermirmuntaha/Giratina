@@ -1,4 +1,3 @@
-import { checkBumpReminders } from './services/bumpReminderService.js';
 import 'dotenv/config';
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import { REST } from '@discordjs/rest';
