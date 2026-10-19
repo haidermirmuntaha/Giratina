@@ -1,5 +1,3 @@
-import { checkBumpReminders } from "../services/bumpReminderService.js";
-import { runSafeTask } from "../utils/errorHandler.js";
 import { Events } from "discord.js";
 import { logger, startupLog } from "../utils/logger.js";
 import config from "../config/application.js";
@@ -19,9 +17,6 @@ export default {
       startupLog(`Ready! Logged in as ${client.user.tag}`);
       startupLog(`Serving ${client.guilds.cache.size} guild(s)`);
       startupLog(`Loaded ${client.commands.size} commands`);
-
-           // Deliver any overdue DISBOARD bump reminders after restart (idempotent via lastBumpReminderFor)
-      await runSafeTask('bump_reminder_startup', () => checkBumpReminders(client))();
       if (client.config?.features?.music) {
         initRiffyAfterReady(client);
       }
