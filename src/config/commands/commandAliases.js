@@ -32,6 +32,7 @@ export const commandAliases = {
     'clear': 'purge',
     'purge': 'purge',
     'untimeout': 'untimeout',
+    'fn': 'forcenick',
     'unmute': 'untimeout',
 
     'rank': 'rank',
