@@ -70,12 +70,6 @@ export const GuildConfigSchema = z
     reportChannelId: z.string().nullable().optional(),
     birthdayChannelId: z.string().nullable().optional(),
     premiumRoleId: z.string().nullable().optional(),
-        // DISBOARD bump reminder settings (stored in guilds.config JSONB)
-    bumpEnabled: z.boolean().optional(),
-    bumpChannelId: z.string().nullable().optional(),
-    bumpRoleId: z.string().nullable().optional(),
-    lastBumpAt: z.string().nullable().optional(),
-    lastBumpReminderFor: z.string().nullable().optional(),
     logIgnore: LogIgnoreSchema.optional(),
     disabledCommands: z.record(z.boolean()).optional(),
     disabledCategories: z.record(z.boolean()).optional(),
