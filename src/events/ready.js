@@ -1,3 +1,5 @@
+import { checkBumpReminders } from "../services/bumpReminderService.js";
+import { runSafeTask } from "../utils/errorHandler.js";
 import { Events } from "discord.js";
 import { logger, startupLog } from "../utils/logger.js";
 import config from "../config/application.js";
